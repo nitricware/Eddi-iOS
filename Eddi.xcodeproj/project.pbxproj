@@ -15,6 +15,8 @@
 		450B487E23C9C579006D40C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450B487C23C9C579006D40C2 /* LaunchScreen.storyboard */; };
 		450B488923C9C57A006D40C2 /* EddiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B488823C9C57A006D40C2 /* EddiTests.swift */; };
 		450B489423C9C57A006D40C2 /* EddiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B489323C9C57A006D40C2 /* EddiUITests.swift */; };
+		4522E82823CA00BD0089169F /* UIPickerViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */; };
+		4522E82A23CA0FAF0089169F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522E82923CA0FAF0089169F /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		450B488F23C9C57A006D40C2 /* EddiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EddiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B489323C9C57A006D40C2 /* EddiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EddiUITests.swift; sourceTree = "<group>"; };
 		450B489523C9C57A006D40C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewExtension.swift; sourceTree = "<group>"; };
+		4522E82923CA0FAF0089169F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				450B487A23C9C579006D40C2 /* Assets.xcassets */,
 				450B487C23C9C579006D40C2 /* LaunchScreen.storyboard */,
 				450B487F23C9C579006D40C2 /* Info.plist */,
+				4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */,
+				4522E82923CA0FAF0089169F /* ResultViewController.swift */,
 			);
 			path = Eddi;
 			sourceTree = "<group>";
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4522E82A23CA0FAF0089169F /* ResultViewController.swift in Sources */,
 				450B487623C9C572006D40C2 /* ViewController.swift in Sources */,
 				450B487223C9C572006D40C2 /* AppDelegate.swift in Sources */,
+				4522E82823CA00BD0089169F /* UIPickerViewExtension.swift in Sources */,
 				450B487423C9C572006D40C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
