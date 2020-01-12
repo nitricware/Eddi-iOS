@@ -59,7 +59,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        print(pickerView.tag)
         if (pickerView.tag == 0) {
             return 2
         } else {
@@ -85,14 +84,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let hfTrainE = String(Int(hfres * 0.8 + hfmin))
             let hfTrainI = String(Int(hfres * 0.6 + hfmin))
             let hfTrainU = String(Int(hfres * 0.5 + hfmin))
-            // THF = RHF + (HFR x Faktor)
-            /*
-             1 - Gesundheitszone: 50 bis 60 % der maximalen Herzfrequenz (HFmax) (Faktor 0,5 bis 0,6)
-             2 - Fettstoffwechselzone: 60 bis 70 % der HFmax (Faktor 0,6 bis 0,7)
-             3 - Aerobe Zone: 70 bis 80 % der HFmax (Faktor 0,7 bis 0,8)
-             4 - Anaerobe Zone: 80 bis 90 % der HFmax (Faktor 0,8 bis 0,9)
-             5 - Wettkampfspezifische Ausdauerzone: 90 bis 100 % der HFmax (Faktor 0,9 bis 1,0) = HFMAX
-             */
             
             let hfTrain1min = String(Int(hfmin + (hfres * 0.5)))
             let hfTrain1max = String(Int(hfmin + (hfres * 0.6)))
