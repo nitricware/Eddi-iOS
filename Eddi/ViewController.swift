@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let numbers = [
         "",
@@ -24,34 +24,79 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         "9"
     ]
     
-    @IBOutlet weak var agePicker: UIPickerView!
-    @IBOutlet weak var hfminpicker: UIPickerView!
+    
+    @IBOutlet weak var ageInput: UITextField!
+    @IBOutlet weak var hfminInput: UITextField!
+    
     @IBOutlet var overallView: UIView!
+    @IBOutlet weak var scrollview: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.agePicker.delegate = self
-        self.agePicker.dataSource = self
-        
-        self.agePicker.selectRow(3, inComponent: 0, animated: false)
-        self.agePicker.selectRow(9, inComponent: 1, animated: false)
-        
-        let ageLabel = UILabel()
-        ageLabel.text = "Jahre"
-        
-        self.agePicker.setPickerLabels(labels: [1: ageLabel], containedView: overallView)
-        
-        self.hfminpicker.delegate = self
-        self.hfminpicker.dataSource = self
-        
-        self.hfminpicker.selectRow(6, inComponent: 1, animated: false)
-        self.hfminpicker.selectRow(4, inComponent: 2, animated: false)
-        
-        let hfminLabel = UILabel()
-        hfminLabel.text = "Schläge"
-        
-        hfminpicker.setPickerLabels(labels: [2: hfminLabel], containedView: overallView)
+    NotificationCenter.default.addObserver(self,selector:#selector(self.keyboardWillShow),name:UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardWillHide),name:UIResponder.keyboardDidHideNotification, object: nil)
+        self.setupToHideKeyboardOnTapOnView()
+    }
+    
+    func setupToHideKeyboardOnTapOnView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard))
+
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let userInfo = notification.userInfo, let frame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                return
+        }
+        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
+
+        scrollview.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        scrollview.contentInset = UIEdgeInsets.zero
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Handle backspace/delete
+        guard !string.isEmpty else {
+            // Backspace detected, allow text change, no need to process the text any further
+            return true
+        }
+
+        // Input Validation
+        // Prevent invalid character input, if keyboard is numberpad
+        if textField.keyboardType == .numberPad {
+
+            // Check for invalid input characters
+            if !CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: string)) {
+                // Invalid characters detected, disallow text change
+                return false
+            }
+        }
+
+        // Length Processing
+        // Need to convert the NSRange to a Swift-appropriate type
+        if let text = textField.text, let range = Range(range, in: text) {
+
+            let proposedText = text.replacingCharacters(in: range, with: string)
+
+            // Check proposed text length does not exceed max character count
+            guard proposedText.count <= 3 else {
+                // Character count exceeded, disallow text change
+                return false
+            }
+        }
+
+        // Allow text change
+        return true
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -76,9 +121,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "results") {
+            let age = NSString(string: ageInput.text ?? "0").doubleValue
+            let hfmin = NSString(string: hfminInput.text ?? "0").doubleValue
             
-            let age = Double(String(numbers[agePicker.selectedRow(inComponent: 0)]) + String(numbers[agePicker.selectedRow(inComponent: 1)]))!
-            let hfmin = Double(String(numbers[hfminpicker.selectedRow(inComponent: 0)]) + String(numbers[hfminpicker.selectedRow(inComponent: 1)]) + String(numbers[hfminpicker.selectedRow(inComponent: 2)]))!
             let hfmax = 220.0 - age
             let hfres = hfmax - hfmin
             let hfTrainE = String(Int(hfres * 0.8 + hfmin))
