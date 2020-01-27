@@ -1,0 +1,63 @@
+
+/* Class = "UILabel"; text = "Eddi needs your age and your resting heart rate to calculate your training heart rate and your personal heart rate zones using the Karvonen Formula and the Edwards method."; ObjectID = "99L-oV-p3j"; */
+"99L-oV-p3j.text" = "Um Deine Trainings-Herzfrequenz und deine Belastungszonen nach Edwards mit der Karvonen Formel zu berechnen, benötigt Eddi Dein Alter und deinen Ruhepuls.";
+
+/* Class = "UILabel"; text = "999 - 999"; ObjectID = "BNo-Jo-27y"; */
+"BNo-Jo-27y.text" = "999 - 999";
+
+/* Class = "UILabel"; text = "Training Heart Rate"; ObjectID = "ESt-4N-aFO"; */
+"ESt-4N-aFO.text" = "Trainingsfrequenz";
+
+/* Class = "UILabel"; text = "Health Zone"; ObjectID = "Hs8-es-v2J"; */
+"Hs8-es-v2J.text" = "Gesundheitszone";
+
+/* Class = "UILabel"; text = "Eddi"; ObjectID = "ImE-uZ-ZfC"; */
+"ImE-uZ-ZfC.text" = "Eddi";
+
+/* Class = "UILabel"; text = "extensive training"; ObjectID = "Jlp-LC-uXU"; */
+"Jlp-LC-uXU.text" = "extensives Training";
+
+/* Class = "UILabel"; text = "Anaerobic Zone"; ObjectID = "QbF-mQ-10v"; */
+"QbF-mQ-10v.text" = "Anaerobe Zone";
+
+/* Class = "UILabel"; text = "Aerobic Zone"; ObjectID = "SaH-m0-L77"; */
+"SaH-m0-L77.text" = "Aerobe Zone";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "THx-wC-bHu"; */
+"THx-wC-bHu.text" = "Alter";
+
+/* Class = "UILabel"; text = "999 - 999"; ObjectID = "Tex-hY-BNg"; */
+"Tex-hY-BNg.text" = "999 - 999";
+
+/* Class = "UITextField"; placeholder = "56"; ObjectID = "YTV-C3-X5E"; */
+"YTV-C3-X5E.placeholder" = "56";
+
+/* Class = "UILabel"; text = "999 - 999"; ObjectID = "bcF-Vz-BFD"; */
+"bcF-Vz-BFD.text" = "999 - 999";
+
+/* Class = "UILabel"; text = "999 - 999"; ObjectID = "dQe-CL-qff"; */
+"dQe-CL-qff.text" = "999 - 999";
+
+/* Class = "UILabel"; text = "Karvonen Formula"; ObjectID = "g2b-fU-bRy"; */
+"g2b-fU-bRy.text" = "Karvonen Formel";
+
+/* Class = "UILabel"; text = "Competition"; ObjectID = "hri-m2-XvA"; */
+"hri-m2-XvA.text" = "Wettkampf";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "keo-L0-zov"; */
+"keo-L0-zov.text" = "999";
+
+/* Class = "UILabel"; text = "Resting Heart Rate"; ObjectID = "ooz-LR-TyP"; */
+"ooz-LR-TyP.text" = "Ruhepuls";
+
+/* Class = "UITextField"; placeholder = "28"; ObjectID = "pTS-Z1-YKi"; */
+"pTS-Z1-YKi.placeholder" = "28";
+
+/* Class = "UILabel"; text = "Fat Metabolism Zone"; ObjectID = "rLM-Yw-96c"; */
+"rLM-Yw-96c.text" = "Fettstoffwechselzone";
+
+/* Class = "UILabel"; text = "999 - 999"; ObjectID = "ru3-JL-mmi"; */
+"ru3-JL-mmi.text" = "999 - 999";
+
+/* Class = "UIButton"; normalTitle = "berechnen"; ObjectID = "srn-Il-qVp"; */
+"srn-Il-qVp.normalTitle" = "berechnen";

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     
     let numbers = [
         "",
@@ -24,6 +24,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         "9"
     ]
     
+    let numberToolbar: UIToolbar = UIToolbar()
+    
     
     @IBOutlet weak var ageInput: UITextField!
     @IBOutlet weak var hfminInput: UITextField!
@@ -36,6 +38,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     NotificationCenter.default.addObserver(self,selector:#selector(self.keyboardWillShow),name:UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardWillHide),name:UIResponder.keyboardDidHideNotification, object: nil)
         self.setupToHideKeyboardOnTapOnView()
+        //numberToolbar.barStyle = UIBarStyle.blackTranslucent
+        numberToolbar.items=[
+            UIBarButtonItem(title: "OK", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.dismissNumpad))
+        ]
+
+        numberToolbar.sizeToFit()
+
+        ageInput.inputAccessoryView = numberToolbar //do it for every relevant textfield if there are more than one
+        hfminInput.inputAccessoryView = numberToolbar
     }
     
     func setupToHideKeyboardOnTapOnView() {
@@ -62,6 +73,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     @objc func keyboardWillHide(notification: Notification) {
         scrollview.contentInset = UIEdgeInsets.zero
+    }
+    
+    @objc func dismissNumpad() {
+        ageInput.resignFirstResponder()
+        hfminInput.resignFirstResponder()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -99,59 +115,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return true
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 11
-    }
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if (pickerView.tag == 0) {
-            return 2
-        } else {
-            return 3
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return numbers[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 25.0
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "results") {
-            let age = NSString(string: ageInput.text ?? "0").doubleValue
-            let hfmin = NSString(string: hfminInput.text ?? "0").doubleValue
-            
-            let hfmax = 220.0 - age
-            let hfres = hfmax - hfmin
-            let hfTrainE = String(Int(hfres * 0.8 + hfmin))
-            let hfTrainI = String(Int(hfres * 0.6 + hfmin))
-            let hfTrainU = String(Int(hfres * 0.5 + hfmin))
-            
-            let hfTrain1min = String(Int(hfmin + (hfres * 0.5)))
-            let hfTrain1max = String(Int(hfmin + (hfres * 0.6)))
-            let hfTrain2max = String(Int(hfmin + (hfres * 0.7)))
-            let hfTrain3max = String(Int(hfmin + (hfres * 0.8)))
-            let hfTrain4max = String(Int(hfmin + (hfres * 0.9)))
-            
-            let hfTrain1 = hfTrain1min + " - " + hfTrain1max
-            let hfTrain2 = hfTrain1max + " - " + hfTrain2max
-            let hfTrain3 = hfTrain2max + " - " + hfTrain3max
-            let hfTrain4 = hfTrain3max + " - " + hfTrain4max
-            let hfTrain5 = hfTrain4max + " - " + String(Int(hfmax))
+            let karvonenCalculator = KarvonenCalculator()
+            karvonenCalculator.age = NSString(string: ageInput.text ?? "0").doubleValue
+            karvonenCalculator.hfmin = NSString(string: hfminInput.text ?? "0").doubleValue
+            karvonenCalculator.calcHFMax()
+            karvonenCalculator.calcHFRes()
+            karvonenCalculator.calculateKarvonen()
+            karvonenCalculator.calculateEdwardsZones()
             
             if let ResultViewController = segue.destination as? ResultViewController {
-                ResultViewController.extTrain = hfTrainE
-                ResultViewController.intTrain = hfTrainI
-                ResultViewController.unTrain = hfTrainU
+                ResultViewController.extTrain = String(karvonenCalculator.karvonenResult.extensiveTraining)
+                ResultViewController.intTrain = String(karvonenCalculator.karvonenResult.intensiveTraining)
+                ResultViewController.unTrain = String(karvonenCalculator.karvonenResult.untrained)
                 
-                ResultViewController.hfTrain1 = hfTrain1
-                ResultViewController.hfTrain2 = hfTrain2
-                ResultViewController.hfTrain3 = hfTrain3
-                ResultViewController.hfTrain4 = hfTrain4
-                ResultViewController.hfTrain5 = hfTrain5
+                ResultViewController.hfTrain1 = String(karvonenCalculator.edwardsResult.healthZone.bottom) + " - " + String(karvonenCalculator.edwardsResult.healthZone.top)
+                ResultViewController.hfTrain2 = String(karvonenCalculator.edwardsResult.fatZone.bottom) + " - " + String(karvonenCalculator.edwardsResult.fatZone.top)
+                ResultViewController.hfTrain3 = String(karvonenCalculator.edwardsResult.aerobicZone.bottom) + " - " + String(karvonenCalculator.edwardsResult.aerobicZone.top)
+                ResultViewController.hfTrain4 = String(karvonenCalculator.edwardsResult.anaerobicZone.bottom) + " - " + String(karvonenCalculator.edwardsResult.anaerobicZone.top)
+                ResultViewController.hfTrain5 = String(karvonenCalculator.edwardsResult.competitionZone.bottom) + " - " + String(karvonenCalculator.edwardsResult.competitionZone.top)
             }
         }
     }

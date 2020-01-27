@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Eddi
+
+  Created by Kurt Höblinger on 19.01.20.
+  Copyright © 2020 Kurt Höblinger. All rights reserved.
+*/
+
+"EXT_TRAINING" = "extensive training";
+"INT_TRAINING" = "intensive training";
+"UNTRAINED" = "untrained";

@@ -55,15 +55,15 @@ class ResultViewController: UIViewController {
     func circleLeft() -> Void {
         if trainLabelState == 0 {
             trainLabelState = 1
-            trainTypeLabel.text = "intensives Ausdauertraining"
+            trainTypeLabel.text = NSLocalizedString("INT_TRAINING", comment: "intensive")
             karvonenL.text = intTrain
         } else if trainLabelState == 1 {
             trainLabelState = 2
-            trainTypeLabel.text = "untrainiert"
+            trainTypeLabel.text = NSLocalizedString("UNTRAINED", comment: "untrained")
             karvonenL.text = unTrain
         } else {
             trainLabelState = 0
-            trainTypeLabel.text = "extensives Ausdauertraining"
+            trainTypeLabel.text = NSLocalizedString("EXT_TRAINING", comment: "extensive")
             karvonenL.text = extTrain
         }
     }
@@ -71,15 +71,15 @@ class ResultViewController: UIViewController {
     func circleRight() -> Void {
         if trainLabelState == 0 {
             trainLabelState = 2
-            trainTypeLabel.text = "untrainiert"
+            trainTypeLabel.text = NSLocalizedString("UNTRAINED", comment: "untrained")
             karvonenL.text = unTrain
         } else if trainLabelState == 1 {
             trainLabelState = 0
-            trainTypeLabel.text = "extensives Ausdauertraining"
+            trainTypeLabel.text = NSLocalizedString("EXT_TRAINING", comment: "extensive")
             karvonenL.text = extTrain
         } else {
             trainLabelState = 1
-            trainTypeLabel.text = "intensives Ausdauertraining"
+            trainTypeLabel.text = NSLocalizedString("INT_TRAINING", comment: "intensive")
             karvonenL.text = intTrain
         }
     }
