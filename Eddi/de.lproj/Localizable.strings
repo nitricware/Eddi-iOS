@@ -11,5 +11,5 @@
 "UNTRAINED" = "untrainiert";
 
 "HINT_0_TEXT" = "Die Karvonenformel hilft Dir, deine perfekte Herzfrequenz für das Ausdauertraining zu berechnen.";
-"HINT_1_TEXT" = "Hint 2";
-"HINT_2_TEXT" = "Hint 3";
+"HINT_1_TEXT" = "Sally Edwards hat 5 Herzfrequenzzonen definiert, in denen sich Dein Puls bewegen sollte.";
+"HINT_2_TEXT" = "Für die Berechnung der Karvonenformel und der Belastungszonen benötigt Eddi Dein Alter und deinen Ruhepuls.";
