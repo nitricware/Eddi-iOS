@@ -1,0 +1,16 @@
+PODS:
+  - SwiftCarousel (0.8.0)
+
+DEPENDENCIES:
+  - SwiftCarousel
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftCarousel
+
+SPEC CHECKSUMS:
+  SwiftCarousel: a62f4e9b944d1bca4ccfe3f28abb6119e3e36b12
+
+PODFILE CHECKSUM: b92f6aac60ac10bc31a541f02c0e6ec3b9077b46
+
+COCOAPODS: 1.5.2

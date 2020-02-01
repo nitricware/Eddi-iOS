@@ -15,6 +15,7 @@
 		450B487E23C9C579006D40C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450B487C23C9C579006D40C2 /* LaunchScreen.storyboard */; };
 		450B488923C9C57A006D40C2 /* EddiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B488823C9C57A006D40C2 /* EddiTests.swift */; };
 		450B489423C9C57A006D40C2 /* EddiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B489323C9C57A006D40C2 /* EddiUITests.swift */; };
+		45104BFA23E5941700E5EC5F /* HintCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45104BF923E5941700E5EC5F /* HintCellCollectionViewCell.swift */; };
 		4522E82823CA00BD0089169F /* UIPickerViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */; };
 		4522E82A23CA0FAF0089169F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522E82923CA0FAF0089169F /* ResultViewController.swift */; };
 		454F192623DF4D3800F6F99A /* KarvonenStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454F192523DF4D3800F6F99A /* KarvonenStruct.swift */; };
@@ -54,6 +55,7 @@
 		450B488F23C9C57A006D40C2 /* EddiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EddiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B489323C9C57A006D40C2 /* EddiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EddiUITests.swift; sourceTree = "<group>"; };
 		450B489523C9C57A006D40C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45104BF923E5941700E5EC5F /* HintCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewExtension.swift; sourceTree = "<group>"; };
 		4522E82923CA0FAF0089169F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		454F192523DF4D3800F6F99A /* KarvonenStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarvonenStruct.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4522E82923CA0FAF0089169F /* ResultViewController.swift */,
 				45EF634923D30B2200C51211 /* KarvonenCalculator.swift */,
 				454F192D23DF516C00F6F99A /* Structs */,
+				45104BF923E5941700E5EC5F /* HintCellCollectionViewCell.swift */,
 			);
 			path = Eddi;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				4522E82823CA00BD0089169F /* UIPickerViewExtension.swift in Sources */,
 				454F192A23DF4FB300F6F99A /* EdwardsZonesStruct.swift in Sources */,
 				454F192623DF4D3800F6F99A /* KarvonenStruct.swift in Sources */,
+				45104BFA23E5941700E5EC5F /* HintCellCollectionViewCell.swift in Sources */,
 				450B487423C9C572006D40C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

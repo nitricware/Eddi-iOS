@@ -8,9 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
-    let numbers = [
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return hintStrings.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hintCell", for: indexPath) as! HintCellCollectionViewCell
+        cell.hintLabel.text = hintStrings[indexPath.item]
+        return cell
+    }
+    
+    
+    
+    let numbers: [String] = [
         "",
         "0",
         "1",
@@ -24,7 +36,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
         "9"
     ]
     
+    let hintStrings: [String] = [
+        "First hint",
+        "Second hint",
+        "Third hint"
+    ]
+    
     let numberToolbar: UIToolbar = UIToolbar()
+    
+    let cellScale: CGFloat = 0.7
     
     
     @IBOutlet weak var ageInput: UITextField!
@@ -32,6 +52,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
     
     @IBOutlet var overallView: UIView!
     @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var hintCollectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +69,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
 
         ageInput.inputAccessoryView = numberToolbar //do it for every relevant textfield if there are more than one
         hfminInput.inputAccessoryView = numberToolbar
+        
+        let screenSize = UIScreen.main.bounds.size
+        
+        let cellWidth = floor(screenSize.width * cellScale)
+        let cellHeight = floor(screenSize.height * cellScale)
+        
+        let insetX = (view.bounds.width - cellWidth) / 2.0
+        let insetY = (view.bounds.height - cellHeight) / 2.0
+        
+        let hintLayout = hintCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        hintLayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+        hintLayout.sectionInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let layout = self.hintCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        var offset = targetContentOffset.pointee
+        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
+        let roundedIndex = round(index)
+        
+        offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: scrollView.contentInset.top)
+        targetContentOffset.pointee = offset
     }
     
     func setupToHideKeyboardOnTapOnView() {
@@ -114,6 +160,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
         // Allow text change
         return true
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "results") {
