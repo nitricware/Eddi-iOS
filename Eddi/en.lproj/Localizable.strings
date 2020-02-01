@@ -9,3 +9,7 @@
 "EXT_TRAINING" = "extensive training";
 "INT_TRAINING" = "intensive training";
 "UNTRAINED" = "untrained";
+
+"HINT_0_TEXT" = "Die Karvonenformel hilft Dir, deine perfekte Herzfrequenz für das Ausdauertraining zu berechnen.";
+"HINT_1_TEXT" = "Hint 2";
+"HINT_2_TEXT" = "Hint 3";

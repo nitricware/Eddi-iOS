@@ -11,12 +11,12 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hintStrings.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hintCell", for: indexPath) as! HintCellCollectionViewCell
-        cell.hintLabel.text = hintStrings[indexPath.item]
+        cell.hintLabel.text = NSLocalizedString("HINT_\(indexPath.item)_TEXT", comment: "hint string")
         return cell
     }
     
@@ -34,12 +34,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
         "7",
         "8",
         "9"
-    ]
-    
-    let hintStrings: [String] = [
-        "First hint",
-        "Second hint",
-        "Third hint"
     ]
     
     let numberToolbar: UIToolbar = UIToolbar()

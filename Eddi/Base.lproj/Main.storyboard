@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Pf-Cb-diJ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Pf-Cb-diJ">
                                 <rect key="frame" x="-20" y="0.0" width="360" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkj-vd-fFg" userLabel="ScrollContentView">
@@ -191,21 +191,19 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="top" secondItem="rTs-Ug-dLe" secondAttribute="top" id="CYI-an-65S"/>
-                                    <constraint firstItem="rTs-Ug-dLe" firstAttribute="trailing" secondItem="Gkj-vd-fFg" secondAttribute="trailing" constant="20" id="Q91-dT-vPX"/>
-                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="bottom" secondItem="rTs-Ug-dLe" secondAttribute="bottom" id="QEo-xw-9xI"/>
-                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="leading" secondItem="rTs-Ug-dLe" secondAttribute="leading" constant="20" id="iur-OO-bAa"/>
+                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="top" secondItem="6Pf-Cb-diJ" secondAttribute="top" id="CYI-an-65S"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gkj-vd-fFg" secondAttribute="trailing" constant="20" id="Q91-dT-vPX"/>
+                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="bottom" secondItem="6Pf-Cb-diJ" secondAttribute="bottom" priority="250" id="QEo-xw-9xI"/>
+                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="centerY" secondItem="6Pf-Cb-diJ" secondAttribute="centerY" priority="250" id="e46-7I-m31"/>
+                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="leading" secondItem="6Pf-Cb-diJ" secondAttribute="leading" constant="20" id="iur-OO-bAa"/>
+                                    <constraint firstItem="Gkj-vd-fFg" firstAttribute="centerX" secondItem="6Pf-Cb-diJ" secondAttribute="centerX" id="mJK-nf-Im0"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Shy-uS-tcc"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="rTs-Ug-dLe"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6Pf-Cb-diJ" secondAttribute="trailing" constant="-20" id="2jH-De-ZJi"/>
                             <constraint firstItem="6Pf-Cb-diJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3oL-fT-Oel"/>
-                            <constraint firstItem="Gkj-vd-fFg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" priority="750" id="A2n-T7-SUG"/>
-                            <constraint firstItem="Gkj-vd-fFg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="GKY-1m-c7C"/>
                             <constraint firstItem="6Pf-Cb-diJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-20" id="ZAc-Lm-frj"/>
                             <constraint firstItem="6Pf-Cb-diJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dHp-sw-kfj"/>
                         </constraints>
