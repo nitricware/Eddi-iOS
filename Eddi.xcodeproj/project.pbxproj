@@ -118,19 +118,16 @@
 		450B487023C9C572006D40C2 /* Eddi */ = {
 			isa = PBXGroup;
 			children = (
+				45B6396F23E6DE0B00312F64 /* Classes */,
+				45B6396E23E6DDEE00312F64 /* Views */,
 				45EF635123D48EF000C51211 /* Localizable.strings */,
 				450B487123C9C572006D40C2 /* AppDelegate.swift */,
 				450B487323C9C572006D40C2 /* SceneDelegate.swift */,
-				450B487523C9C572006D40C2 /* ViewController.swift */,
 				450B487723C9C572006D40C2 /* Main.storyboard */,
 				450B487A23C9C579006D40C2 /* Assets.xcassets */,
 				450B487C23C9C579006D40C2 /* LaunchScreen.storyboard */,
 				450B487F23C9C579006D40C2 /* Info.plist */,
-				4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */,
-				4522E82923CA0FAF0089169F /* ResultViewController.swift */,
-				45EF634923D30B2200C51211 /* KarvonenCalculator.swift */,
 				454F192D23DF516C00F6F99A /* Structs */,
-				45104BF923E5941700E5EC5F /* HintCellCollectionViewCell.swift */,
 			);
 			path = Eddi;
 			sourceTree = "<group>";
@@ -161,6 +158,25 @@
 				454F192B23DF512E00F6F99A /* EdwardsZoneStruct.swift */,
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		45B6396E23E6DDEE00312F64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				450B487523C9C572006D40C2 /* ViewController.swift */,
+				4522E82723CA00BD0089169F /* UIPickerViewExtension.swift */,
+				4522E82923CA0FAF0089169F /* ResultViewController.swift */,
+				45104BF923E5941700E5EC5F /* HintCellCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45B6396F23E6DE0B00312F64 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				45EF634923D30B2200C51211 /* KarvonenCalculator.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,13 +508,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = PMCWJ9GD9L;
 				INFOPLIST_FILE = Eddi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nitricware.eddi-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -511,13 +528,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = PMCWJ9GD9L;
 				INFOPLIST_FILE = Eddi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nitricware.eddi-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
