@@ -13,3 +13,7 @@
 "HINT_0_TEXT" = "The Karvonen formula can help you, determine the perfect heart rate for your training.";
 "HINT_1_TEXT" = "Sally Edwards defined 5 heart rate zones, you should consider while training.";
 "HINT_2_TEXT" = "To calculate both, the Karvonen formula and the heart rate zones, Eddi needs your age and resting heart rate.";
+"HINT_3_TEXT" = "Tapping the heart shaped button will import your resting heart rate from your Health App - if your device supports it!";
+
+"HKFETCH_ERROR_TITLE" = "Couldn't get Resting Heart Rate";
+"HKFETCH_ERROR_BODY" = "Either Eddi does not have permission to fetch the resting heart rate from your Health App, or there is no value available.";
