@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Eddi-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Eddi" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,11 +29,11 @@
                                                 </constraints>
                                                 <state key="normal" title="calculate"/>
                                                 <connections>
-                                                    <segue destination="JYT-w2-GeK" kind="show" identifier="results" id="eXF-sN-hFB"/>
+                                                    <segue destination="JYT-w2-GeK" kind="presentation" identifier="results" id="eXF-sN-hFB"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eddi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImE-uZ-ZfC">
-                                                <rect key="frame" x="20" y="32" width="374" height="48"/>
+                                                <rect key="frame" x="20" y="32" width="315" height="48"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -169,19 +169,35 @@
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="mpn-C6-YDN"/>
                                                 </connections>
                                             </collectionView>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="020-3Y-p4n">
+                                                <rect key="frame" x="360" y="37.5" width="38" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="38" id="BRg-YC-fnB"/>
+                                                    <constraint firstAttribute="height" constant="38" id="ZcI-Q5-j2a"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <state key="normal" backgroundImage="heart.circle" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="importHealthButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l8t-Un-zXZ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="KHc-B6-hkF" firstAttribute="top" secondItem="ImE-uZ-ZfC" secondAttribute="bottom" constant="8" id="3MX-PT-xz4"/>
                                             <constraint firstAttribute="trailing" secondItem="EuY-BJ-6sX" secondAttribute="trailing" id="7AU-oo-WDH"/>
                                             <constraint firstItem="ImE-uZ-ZfC" firstAttribute="leading" secondItem="Gkj-vd-fFg" secondAttribute="leading" constant="20" id="9Ct-I3-xXc"/>
+                                            <constraint firstItem="020-3Y-p4n" firstAttribute="leading" secondItem="ImE-uZ-ZfC" secondAttribute="trailing" constant="25" id="H6b-bQ-RW8"/>
                                             <constraint firstItem="EuY-BJ-6sX" firstAttribute="top" secondItem="KHc-B6-hkF" secondAttribute="bottom" constant="8" id="HLi-49-egK"/>
                                             <constraint firstItem="srn-Il-qVp" firstAttribute="top" secondItem="R0o-fX-a0D" secondAttribute="bottom" constant="8" id="NiA-t3-bZD"/>
                                             <constraint firstAttribute="bottom" secondItem="srn-Il-qVp" secondAttribute="bottom" constant="8" id="RND-og-VIJ"/>
                                             <constraint firstAttribute="trailing" secondItem="R0o-fX-a0D" secondAttribute="trailing" id="RoP-8c-LHu"/>
                                             <constraint firstItem="ImE-uZ-ZfC" firstAttribute="top" secondItem="Gkj-vd-fFg" secondAttribute="top" constant="32" id="WAk-dC-4Jn"/>
                                             <constraint firstAttribute="trailing" secondItem="KHc-B6-hkF" secondAttribute="trailing" id="WzZ-yP-Cq7"/>
-                                            <constraint firstAttribute="trailing" secondItem="ImE-uZ-ZfC" secondAttribute="trailing" constant="20" id="XNQ-YG-Azn"/>
+                                            <constraint firstItem="KHc-B6-hkF" firstAttribute="top" secondItem="020-3Y-p4n" secondAttribute="bottom" constant="13" id="Zez-Ah-bxv"/>
                                             <constraint firstItem="R0o-fX-a0D" firstAttribute="top" secondItem="EuY-BJ-6sX" secondAttribute="bottom" constant="8" id="fdS-c6-XLh"/>
+                                            <constraint firstAttribute="trailing" secondItem="020-3Y-p4n" secondAttribute="trailing" constant="16" id="gwr-qH-F2z"/>
                                             <constraint firstItem="R0o-fX-a0D" firstAttribute="leading" secondItem="Gkj-vd-fFg" secondAttribute="leading" id="hem-gH-Sh2"/>
                                             <constraint firstItem="KHc-B6-hkF" firstAttribute="leading" secondItem="Gkj-vd-fFg" secondAttribute="leading" id="hzb-Su-TRU"/>
                                             <constraint firstItem="EuY-BJ-6sX" firstAttribute="leading" secondItem="Gkj-vd-fFg" secondAttribute="leading" id="kbi-Hk-akf"/>
@@ -209,17 +225,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Eddi" largeTitleDisplayMode="always" id="Aac-dp-R5K"/>
                     <connections>
                         <outlet property="ageInput" destination="pTS-Z1-YKi" id="3D1-fU-zH9"/>
                         <outlet property="hfminInput" destination="YTV-C3-X5E" id="6eV-oY-E8U"/>
                         <outlet property="hintCollectionView" destination="KHc-B6-hkF" id="kqb-uf-fsY"/>
+                        <outlet property="importHealthButton" destination="020-3Y-p4n" id="UQh-aH-b9H"/>
                         <outlet property="overallView" destination="8bC-Xf-vdC" id="qNc-yX-vHY"/>
                         <outlet property="scrollview" destination="6Pf-Cb-diJ" id="d0w-ic-4E3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.75" y="111.97183098591549"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="111.83035714285714"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="9nL-VW-Qae">
@@ -462,6 +480,8 @@
                         <viewLayoutGuide key="safeArea" id="j5u-Ed-nR0"/>
                     </view>
                     <navigationItem key="navigationItem" id="YFh-2M-x3P"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="hfTrain1L" destination="dQe-CL-qff" id="5It-eZ-Jvm"/>
                         <outlet property="hfTrain2L" destination="Tex-hY-BNg" id="igk-x9-QRd"/>
@@ -484,11 +504,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1087.5" y="111.97183098591549"/>
+            <point key="canvasLocation" x="1997.1014492753625" y="111.83035714285714"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
         <image name="arrow.right.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="heart.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

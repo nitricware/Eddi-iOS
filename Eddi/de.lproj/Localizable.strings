@@ -13,3 +13,7 @@
 "HINT_0_TEXT" = "Die Karvonenformel hilft Dir, deine perfekte Herzfrequenz für das Ausdauertraining zu berechnen.";
 "HINT_1_TEXT" = "Sally Edwards hat 5 Herzfrequenzzonen definiert, in denen sich Dein Puls bewegen sollte.";
 "HINT_2_TEXT" = "Für die Berechnung der Karvonenformel und der Belastungszonen benötigt Eddi Dein Alter und deinen Ruhepuls.";
+"HINT_3_TEXT" = "Ein Tap auf den herzförmigen Knopf genügt und der Ruhepuls wird aus der Health App importiert - wenn dein Gerät das unterstützt.";
+
+"HKFETCH_ERROR_TITLE" = "Ruhepuls nicht ermittelbar";
+"HKFETCH_ERROR_BODY" = "Entweder hat Eddi keinen Zugriff auf deine Health App, oder es ist kein Ruhepuls-Wert hinterlegt.";

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import HealthKit
+
+let healthStore: HKHealthStore = HKHealthStore()
 
 class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -19,8 +22,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
         cell.hintLabel.text = NSLocalizedString("HINT_\(indexPath.item)_TEXT", comment: "hint string")
         return cell
     }
-    
-    
     
     let numbers: [String] = [
         "",
@@ -40,13 +41,49 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
     
     let cellScale: CGFloat = 0.7
     
-    
     @IBOutlet weak var ageInput: UITextField!
     @IBOutlet weak var hfminInput: UITextField!
     
     @IBOutlet var overallView: UIView!
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var hintCollectionView: UICollectionView!
+    @IBAction func importHealthButtonPressed(_ sender: Any) {
+        let readHKTypes = Set([HKObjectType.quantityType(forIdentifier: .restingHeartRate)!])
+
+        healthStore.requestAuthorization(toShare: nil, read: readHKTypes) {
+            (success, error) in
+            if !success {
+                // Handle the error here.
+                print(error ?? "error while authorizing...")
+            }
+            let sampleType = HKQuantityType.quantityType(forIdentifier: .restingHeartRate)
+            let hfminQuery = HKSampleQuery(
+                sampleType: sampleType!,
+                predicate: nil,
+                limit: 1,
+                sortDescriptors: nil
+            ) {
+                [unowned self] (query, results, error) in
+                if let samples = results as? [HKQuantitySample] {
+                    if let hfminSample = samples.first?.quantity.doubleValue(for: HKUnit(from: "count/min")) {
+                        DispatchQueue.main.async {
+                            self.hfminInput.text = String(format: "%.0f",hfminSample)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            let errorAlert = NWHelper.showConfirmAlert(
+                                    title: NSLocalizedString("HKFETCH_ERROR_TITLE", comment: "hkfetcherror title"),
+                                    body: NSLocalizedString("HKFETCH_ERROR_BODY", comment: "hkfetcherror body")
+                                )
+                            self.present(errorAlert, animated: true)
+                        }
+                    }
+                }
+            }
+            healthStore.execute(hfminQuery)
+        }
+    }
+    @IBOutlet weak var importHealthButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -76,6 +113,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegat
         
         hintLayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         hintLayout.sectionInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+        
+        if !HKHealthStore.isHealthDataAvailable() {
+            importHealthButton.isHidden = true
+        }
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
